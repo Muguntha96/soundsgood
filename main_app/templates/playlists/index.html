@@ -12,7 +12,7 @@
 <section>
   {% for playlist in playlists  %}
   <div class="card">
-    <a href="/playlists/{{playlist.id}}">
+    <a href="{% url "playlist-detail" playlist.id %}">
       <div class="card-content">
         <div class="card-img-container">
           <img src="{% static "images/default-card-img.svg" %}" alt="default-card-img" class="default-card-img">

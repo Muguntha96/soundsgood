@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "css/playlists/playlist-detail.css" %}">
+{% endblock %}
+
+{% block content %}
+<section class="playlist-container">
+  <div class="playlist-img">
+    <img src="{% static "images/default-detail.png" %}" alt="default-detail-page" class="default-playlist-img" style="width:30%;height:50%">
+  </div>
+  <div class="playlist-details">
+    <h1>{{playlist.title}}</h1>
+    <h2>Genre:{{playlist.genre}}</h2>
+    <h2>Description:{{playlist.description}}</h2>
+  </div>
+</section>
+{% endblock %}

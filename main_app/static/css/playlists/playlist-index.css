@@ -1,0 +1,9 @@
+body{
+  background-color: wheat;
+}
+.default-card-img{
+  width: 200px;
+  height: 50%;
+  background-color: rgb(130, 35, 180);
+  
+}

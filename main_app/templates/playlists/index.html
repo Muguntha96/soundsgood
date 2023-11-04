@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "css/playlists/playlist-index.css" %}">
+{% endblock %}
+
+{% block content %}
+<section>
+  <h1>List of Playlist</h1>
+</section>
+<section>
+  {% for playlist in playlists  %}
+  <div class="card">
+    <div class="card-content">
+      <div class="card-img-container">
+        <img src="{% static "images/default-card-img.svg" %}" alt="default-card-img" class="default-card-img">
+      </div>
+      <h2 class="card-title">{{playlist.title}}</h2>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}

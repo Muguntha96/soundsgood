@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/songs/song-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+<section class="caard-coontainer">
+  {% for song in song_list %}
+  <div class="card">
+    <a href="{% url "song-detail" song.id %}">
+      <div class="song-img">
+        <img src="{% static "images/song-card.png" %}" alt="song-card-img">
+      </div>
+      <div class="card-content">
+        <h2>{{song.title}}</h2>
+      </div>
+    </a>
+    <a href="{% url 'song-update' song.id %}" class="btn warn">Edit</a>
+    <a href="{% url 'song-delete' song.id %}" class="btn danger">Delete</a>
+    <button type="submit" class="play">Play</button>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}

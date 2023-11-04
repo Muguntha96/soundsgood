@@ -11,20 +11,24 @@ GENRE=(
     ('Night Times', 'Night Times'),
 )
 # Create your models here.
+
 class Song(models.Model):
-  title = models.CharField(max_length=100)
+  title=models.CharField(max_length=50)
   genre=models.CharField(
-    max_length=100,
+    max_length=50,
     choices=GENRE,
     default=GENRE[0][0]
   )
-  released_year=models.PositiveIntegerField(
-    verbose_name="Released Year",
-    default={'min_value':1900,'max_value':2099},
-    blank=True,
-    null=True,
-    help_text="The year in which it was released."
-  )
+  composer=models.CharField(max_length=100)
+  
+  def __str__(self):
+    return self.title
+  
+  def get_absolute_url(self):
+      return reverse("song-detail", kwargs={"pk": self.id})
+  
+  
+
   
 class Playlist(models.Model):
   title=models.CharField(max_length=100)

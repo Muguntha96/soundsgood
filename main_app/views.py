@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView,UpdateView
 from django.views.generic import ListView, DetailView
 from .models import Playlist,Song
 
-from main_app.models import Playlist
+from main_app.models import Playlist,Song
 
 # Create your views here.
 def home(request):
@@ -26,7 +26,7 @@ def playlist_delete(request,playlist_id):
   return redirect('playlist-index')
 class PlaylistCreate(CreateView):
   model = Playlist
-  fields = '__all__'
+  fields = ['title','description','genre']
   success_url = '/playlists/' 
   
 class PlaylistUpdate(UpdateView):
@@ -40,4 +40,6 @@ class SongCreate(CreateView):
 
 class SongList(ListView):
   model = Song
-  
+
+class SongDetail(DetailView):
+  model = Song

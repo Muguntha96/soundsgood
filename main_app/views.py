@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
+from django.views.generic.edit import CreateView
+from .models import Playlist
 
 from main_app.models import Playlist
 
@@ -17,3 +19,7 @@ def playlist_index(request):
 def playlist_detail(request,playlist_id):
   playlist = Playlist.objects.get(id=playlist_id)
   return render(request,'playlists/detail.html',{'playlist':playlist})
+
+class PlaylistCreate(CreateView):
+  model = Playlist
+  fields = '__all__'

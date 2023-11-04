@@ -18,8 +18,9 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/playlists">Playlists</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url "playlist-index" %}">Playlists</a></li>
+        <li><a href="{% url "playlist-create" %}">Create Playlist</a></li>
+        <li><a href="{% url "about" %}">About</a></li>
       </ul>
     </nav>
   </header>

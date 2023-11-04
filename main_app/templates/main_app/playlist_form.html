@@ -7,7 +7,11 @@
 
 {% block content %}
 <div class="page-header">
-  <h1>Creat a Playlist</h1>
+  {% if playlist %}
+    <h1>Edit {{playlist.title}}</h1>
+  {% else %}
+  <h1>Create a Playlist</h1>
+  {% endif %}
 </div>
 <form action="" method="post" class="form-container">
 {% csrf_token %}

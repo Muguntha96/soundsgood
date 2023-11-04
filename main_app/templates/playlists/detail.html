@@ -14,6 +14,11 @@
     <h1>{{playlist.title}}</h1>
     <h2>Genre:{{playlist.genre}}</h2>
     <h2>Description:{{playlist.description}}</h2>
+    <div class="cat-actions">
+      <a href="{% url 'playlist-update' playlist.id %}" class='btn warn'>Edit</a>
+      <a href="{% url 'playlist-delete' playlist.id %}" class='btn danger'>Delete</a>
+    </div>
+    </dv>
   </div>
 </section>
 {% endblock %}

@@ -43,3 +43,11 @@ class SongList(ListView):
 
 class SongDetail(DetailView):
   model = Song
+
+class SongUpdate(UpdateView):
+  model = Song
+  fields =['title','genre']
+
+def song_delete(request,song_id):
+  Song.objects.get(id=song_id).delete()
+  return redirect('song-index')

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 # from django.http import HttpResponse
 from django.views.generic.edit import CreateView,UpdateView, DeleteView
 from .models import Playlist
@@ -20,6 +20,9 @@ def playlist_detail(request,playlist_id):
   playlist = Playlist.objects.get(id=playlist_id)
   return render(request,'playlists/detail.html',{'playlist':playlist})
 
+def playlist_delete(request,playlist_id):
+  Playlist.objects.get(id=playlist_id).delete()
+  return redirect('playlist-index')
 class PlaylistCreate(CreateView):
   model = Playlist
   fields = '__all__'
@@ -29,6 +32,6 @@ class PlaylistUpdate(UpdateView):
   model=Playlist
   fields=['title','genre','description']
   
-class PlaylistDelete(DeleteView):
-  model=Playlist
-  success_url='/playlists/'
+# class PlaylistDelete(DeleteView):
+#   model=Playlist
+#   success_url='/playlists/'

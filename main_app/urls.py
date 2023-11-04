@@ -8,5 +8,5 @@ urlpatterns = [
     path('playlists/<int:playlist_id>/',views.playlist_detail,name='playlist-detail'),
     path('playlists/create/',views.PlaylistCreate.as_view(),name='playlist-create'),
     path('playlists/<int:pk>/update/',views.PlaylistUpdate.as_view(),name='playlist-update'),
-    path('playlists/<int:pk>/delete/',views.PlaylistDelete.as_view(),name='playlist-delete'),
+    path('playlists/<int:playlist_id>/delete/',views.playlist_delete,name='playlist-delete'),
 ]

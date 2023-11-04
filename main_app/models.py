@@ -3,12 +3,12 @@ from django.urls import reverse
 from django.utils import timezone
 
 GENRE=(
-  ('pop', 'Pop'),
-    ('jazz', 'Jazz'),
-    ('melody', 'Melody'),
-    ('workout', 'Workout'),
-    ('travel', 'Travel'),
-    ('night_times', 'Night Times'),
+    ('Pop','Pop'),
+    ('Jazz','Jazz'),
+    ('Melody', 'Melody'),
+    ('Workout', 'Workout'),
+    ('Travel', 'Travel'),
+    ('Night Times', 'Night Times'),
 )
 # Create your models here.
 class Playlist(models.Model):

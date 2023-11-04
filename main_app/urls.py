@@ -9,4 +9,6 @@ urlpatterns = [
     path('playlists/create/',views.PlaylistCreate.as_view(),name='playlist-create'),
     path('playlists/<int:pk>/update/',views.PlaylistUpdate.as_view(),name='playlist-update'),
     path('playlists/<int:playlist_id>/delete/',views.playlist_delete,name='playlist-delete'),
+    path('songs/create',views.SongCreate.as_view(),name='song-create'),
+    path('songs/',views.SongList.as_view(),name='song-index'),
 ]

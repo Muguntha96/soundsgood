@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
 # from django.http import HttpResponse
-from django.views.generic.edit import CreateView,UpdateView, DeleteView
-from .models import Playlist
+from django.views.generic.edit import CreateView,UpdateView
+from django.views.generic import ListView, DetailView
+from .models import Playlist,Song
 
 from main_app.models import Playlist
 
@@ -32,6 +33,11 @@ class PlaylistUpdate(UpdateView):
   model=Playlist
   fields=['title','genre','description']
   
-# class PlaylistDelete(DeleteView):
-#   model=Playlist
-#   success_url='/playlists/'
+class SongCreate(CreateView):
+  model = Song
+  fields = '__all__'
+  success_url = '/songs/'
+
+class SongList(ListView):
+  model = Song
+  

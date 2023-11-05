@@ -51,10 +51,13 @@
         <li>
           <img src="{% static "images/song-card-container.png" %}" alt="song-card">
           <p>{{song.title}}</p>
+          <form action="{% url "assoc-song" playlist.id song.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn submit">Add</button>
+          </form>
         </li>
       </div>
       {% empty %}
-        {% comment %} <li>No songs found.</li> {% endcomment %}
     {% endfor %}
   </ul>
 </section>

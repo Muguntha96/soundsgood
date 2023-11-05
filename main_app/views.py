@@ -26,13 +26,9 @@ def playlist_detail(request,playlist_id):
     if form.is_valid():
       query_name = form.cleaned_data.get('query_name')
       if query_name:
-        keys=query_name.split()
-        genre =Q()
-        for key in keys:
-          genre = Q(genre__icontains=query_name)
         songs = Song.objects.all()
         songs = songs.filter(
-          Q(title__icontains=query_name)|Q(composer__icontains=query_name)|genre
+          Q(title__icontains=query_name)|Q(composer__icontains=query_name)|Q(genre__icontains=query_name)
           )
       else:
         songs=[]
@@ -75,9 +71,6 @@ def song_delete(request,song_id):
   Song.objects.get(id=song_id).delete()
   return redirect('song-index')
 
-# def search_song(request):
-#   if request.method == "POST":
-#     query_name = request.POST.get('title',None)
-#     if query_name:
-#       results = Song.objects.filter(title__contains=query_name)
-#       return render(request,'song_list.html',{"results":results})
+def assoc_song(request,playlist_id,song_id):
+  Playlist.objects.get(id=playlist_id).songs.add(song_id)
+  return redirect('playlist-detail',playlist_id=playlist_id)

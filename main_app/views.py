@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-# from django.http import HttpResponse
+from django.db.models import Q
 from django.views.generic.edit import CreateView,UpdateView
 from django.views.generic import ListView, DetailView
 from .models import Playlist,Song
@@ -26,8 +26,16 @@ def playlist_detail(request,playlist_id):
     if form.is_valid():
       query_name = form.cleaned_data.get('query_name')
       if query_name:
+        keys=query_name.split()
+        genre =Q()
+        for key in keys:
+          genre = Q(genre__icontains=query_name)
         songs = Song.objects.all()
-        songs = songs.filter(title__contains=query_name)
+        songs = songs.filter(
+          Q(title__icontains=query_name)|Q(composer__icontains=query_name)|genre
+          )
+      else:
+        songs=[]
     context = {
     'playlist': playlist,
     'songs': songs,

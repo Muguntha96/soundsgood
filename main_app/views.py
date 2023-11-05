@@ -3,7 +3,7 @@ from django.db.models import Q
 from django.views.generic.edit import CreateView,UpdateView
 from django.views.generic import ListView, DetailView
 from .models import Playlist,Song
-from .forms import SongSearchForm
+from .forms import SongSearchForm,UploadSongForm
 from main_app.models import Playlist,Song
 
 # Create your views here.
@@ -55,6 +55,7 @@ class PlaylistUpdate(UpdateView):
 class SongCreate(CreateView):
   model = Song
   fields = '__all__'
+  form=UploadSongForm
   success_url = '/songs/'
 
 class SongList(ListView):

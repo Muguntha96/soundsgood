@@ -8,16 +8,15 @@
 {% block content %}
 <div class="page-header">
   {% if object %}
-    <h1>Edit {{object.name}}</h1>
+    <h1>Edit {{object.title}}</h1>
   {% else %}
     <h1>Add a Song</h1>
   {% endif %}
 </div>
-<form action="" method="post" class="form-container" autocomplete="off">
+<form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
-  <table>
-    {{form.as_table}}
-  </table>
-  <button type="submit" class="btn submit">Submit</button>
+  {{ form.as_p }}
+  <button type="submit">Upload Song</button>
 </form>
+
 {% endblock %}

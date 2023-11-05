@@ -21,4 +21,41 @@
     </dv>
   </div>
 </section>
+<section class="songs">
+  <div class="subsection-title">
+    <h2>{{playlist.title}} Songs List</h2>
+  </div>
+  <div class="subsection-content">
+    {% if playlist.songs.count %}
+        {{songs.count }}
+      {% for song in playlist.songs.all %}
+        <div class="song-container">
+          <div class="song-card-container">
+            <img src="{% static "images/song-card-container.png" %}" alt="song-card">
+          </div>
+          <p>{{song.title}}</p>
+        </div>
+      {% endfor %}
+    {% else %}
+    <p class="no-songs">There are no songs added to this playlist.</p>
+    {% endif %}
+  </div>
+  <h3>Let's Find something for your playlist</h3>
+  <form action="" method="get" class="search-song">
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+    {% for song in songs  %}
+      <div class="song-card">
+        <li>
+          <img src="{% static "images/song-card-container.png" %}" alt="song-card">
+          <p>{{song.title}}</p>
+        </li>
+      </div>
+      {% empty %}
+        {% comment %} <li>No songs found.</li> {% endcomment %}
+    {% endfor %}
+  </ul>
+</section>
 {% endblock %}

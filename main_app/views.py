@@ -7,10 +7,11 @@ from django.views.generic import ListView, DetailView
 from .models import Playlist,Song
 from .forms import SongSearchForm, UploadSongandImageForm,UploadImagePlaylistForm
 from main_app.models import Playlist,Song
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
-def home(request):
-  return render(request,'home.html')
+class Home(LoginView):
+  template_name = 'home.html'
 
 def about(request):
   return render(request,'about.html')

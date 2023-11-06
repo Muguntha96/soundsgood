@@ -10,5 +10,12 @@
   <div class="playlist-container">
     <img src="{% static "images/soundsgood-homepage.svg" %}" alt="Text reads: Soundsgood" class="homepage-img-container">
   </div>
+  <form action="{% url 'home' %}" method="post" class="login">
+    <h1>Login</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn submit">Login</button>
+  </form>
 </section>
 {% endblock %}

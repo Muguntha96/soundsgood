@@ -19,11 +19,16 @@
     </div>
     <nav>
       <ul>
+      {% if user.is_authenticated %}
         <li><a href="{% url "playlist-index" %}">Playlists</a></li>
         <li><a href="{% url "song-index" %}">All Songs</a></li>
         <li><a href="{% url "playlist-create" %}">Create Playlist</a></li>
-        <li><a href="{% url "song-create" %}">Add a Song</a></li>
         <li><a href="{% url "about" %}">About</a></li>
+        <li><a href="{% url 'logout' %}">Log out</a></li>
+      {% else %}
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'home' %}">Login</a></li>
+      {% endif %}
       </ul>
     </nav>
   </header>

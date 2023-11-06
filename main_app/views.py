@@ -1,3 +1,5 @@
+import mimetypes
+from django.http import FileResponse
 from django.shortcuts import redirect, render
 from django.db.models import Q
 from django.views.generic.edit import CreateView,UpdateView
@@ -60,7 +62,21 @@ class SongCreate(CreateView):
 
 class SongList(ListView):
   model = Song
-
+  def play_song(self,song_id):
+    song=Song.objects.get(id=song_id)
+    audio=song.audio_file.path
+    content_type, _ = mimetypes.guess_type(audio)
+    return FileResponse(open(audio, 'rb'), content_type=content_type)
+  # def get(self, request, *args, **kwargs):
+  #       # Check if the request is for playing a song
+  #       if 'song_id' in kwargs:
+  #           song = Song.objects.get(id=kwargs['song_id'])
+  #           audio = song.audio_file.path
+  #           content_type, _ = mimetypes.guess_type(audio)
+  #           return FileResponse(open(audio, 'rb'), content_type=content_type)
+        
+  #       # If it's not a request for playing a song, proceed with listing songs
+  #       return super().get(request, *args, **kwargs)
 class SongDetail(DetailView):
   model = Song
 
@@ -75,3 +91,6 @@ def song_delete(request,song_id):
 def assoc_song(request,playlist_id,song_id):
   Playlist.objects.get(id=playlist_id).songs.add(song_id)
   return redirect('playlist-detail',playlist_id=playlist_id)
+
+# def play_song(request,playlist_id,song_id):
+  

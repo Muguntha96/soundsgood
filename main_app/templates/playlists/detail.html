@@ -34,6 +34,13 @@
             <img src="{% static "images/song-card-container.png" %}" alt="song-card">
           </div>
           <p>{{song.title}}</p>
+          <a href="">
+            <audio controls>
+              <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+              Your browser does not support the audio element.
+          </audio>
+            {% comment %} <button type="submit" class="play">Play</button> {% endcomment %}
+          </a>
         </div>
       {% endfor %}
     {% else %}

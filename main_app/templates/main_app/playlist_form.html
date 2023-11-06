@@ -13,7 +13,7 @@
   <h1>Create a Playlist</h1>
   {% endif %}
 </div>
-<form action="" method="post" class="form-container">
+<form action="" method="post" enctype="multipart/form-data" class="form-container">
 {% csrf_token %}
 <table>
   {{ form.as_table }}

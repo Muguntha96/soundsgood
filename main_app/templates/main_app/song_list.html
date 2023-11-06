@@ -18,7 +18,7 @@
   <div class="card">
     <a href="{% url "song-detail" song.id %}">
       <div class="song-img">
-        <img src="{% static "images/song-card.png" %}" alt="song-card-img">
+        <img src="{{song.image.url}}" style="width:10%;height:10%" alt="song-image" />
       </div>
       <div class="card-content">
         <h2>{{song.title}}</h2>

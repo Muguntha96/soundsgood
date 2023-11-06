@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.views.generic.edit import CreateView,UpdateView
 from django.views.generic import ListView, DetailView
 from .models import Playlist,Song
-from .forms import SongSearchForm,UploadSongForm
+from .forms import SongSearchForm, UploadSongandImageForm,UploadImagePlaylistForm
 from main_app.models import Playlist,Song
 
 # Create your views here.
@@ -47,7 +47,8 @@ def playlist_delete(request,playlist_id):
   return redirect('playlist-index')
 class PlaylistCreate(CreateView):
   model = Playlist
-  fields = ['title','description','genre']
+  fields = ['title','description','genre','playlist_image']
+  playlist_form=UploadImagePlaylistForm
   success_url = '/playlists/' 
   
 class PlaylistUpdate(UpdateView):
@@ -57,7 +58,7 @@ class PlaylistUpdate(UpdateView):
 class SongCreate(CreateView):
   model = Song
   fields = '__all__'
-  form=UploadSongForm
+  form=UploadSongandImageForm
   success_url = '/songs/'
 
 class SongList(ListView):
@@ -67,16 +68,6 @@ class SongList(ListView):
     audio=song.audio_file.path
     content_type, _ = mimetypes.guess_type(audio)
     return FileResponse(open(audio, 'rb'), content_type=content_type)
-  # def get(self, request, *args, **kwargs):
-  #       # Check if the request is for playing a song
-  #       if 'song_id' in kwargs:
-  #           song = Song.objects.get(id=kwargs['song_id'])
-  #           audio = song.audio_file.path
-  #           content_type, _ = mimetypes.guess_type(audio)
-  #           return FileResponse(open(audio, 'rb'), content_type=content_type)
-        
-  #       # If it's not a request for playing a song, proceed with listing songs
-  #       return super().get(request, *args, **kwargs)
 class SongDetail(DetailView):
   model = Song
 

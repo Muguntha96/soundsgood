@@ -15,7 +15,7 @@
     <a href="{% url "playlist-detail" playlist.id %}">
       <div class="card-content">
         <div class="card-img-container">
-          <img src="{% static "images/default-card-img.svg" %}" alt="default-card-img" class="default-card-img">
+          <img src="{{playlist.playlist_image.url}}" alt="default-card-img" class="default-card-img">
         </div>
         <h2 class="card-title">{{playlist.title}}</h2>
       </div>

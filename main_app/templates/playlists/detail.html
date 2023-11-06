@@ -8,7 +8,7 @@
 {% block content %}
 <section class="playlist-container">
   <div class="playlist-img">
-    <img src="{% static "images/default-detail.png" %}" alt="default-detail-page" class="default-playlist-img" style="width:30%;height:50%">
+    <img src="{{playlist.playlist_image.url}}" alt="default-detail-page" class="default-playlist-img" style="width:30%;height:50%">
   </div>
   <div class="playlist-details">
     <h1>{{playlist.title}}</h1>
@@ -31,7 +31,8 @@
       {% for song in playlist.songs.all %}
         <div class="song-container">
           <div class="song-card-container">
-            <img src="{% static "images/song-card-container.png" %}" alt="song-card">
+            <img src="{{song.image.url}}" style="width:10%;height:10%" alt="song-image" />
+            
           </div>
           <p>{{song.title}}</p>
           <a href="">
@@ -56,7 +57,7 @@
     {% for song in songs  %}
       <div class="song-card">
         <li>
-          <img src="{% static "images/song-card-container.png" %}" alt="song-card">
+          <img src="{{song.image.url}}" style="width:10%;height:10%" alt="song-image" />
           <p>{{song.title}}</p>
           <form action="{% url "assoc-song" playlist.id song.id %}" method="post">
             {% csrf_token %}

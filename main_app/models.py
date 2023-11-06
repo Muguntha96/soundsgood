@@ -20,6 +20,7 @@ class Song(models.Model):
     default=GENRE[0][0]
   )
   composer=models.CharField(max_length=100)
+  image = models.ImageField(upload_to='images/')
   audio_file = models.FileField(upload_to='songs/')
   
   def __str__(self):
@@ -39,6 +40,7 @@ class Playlist(models.Model):
     choices=GENRE,
     default=GENRE[0][0]
   )
+  playlist_image=models.ImageField(upload_to='images/')
   songs = models.ManyToManyField(Song)
 
   def __str__(self):

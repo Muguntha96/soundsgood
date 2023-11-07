@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="{% static 'images/soundsgood-favicon.svg' %}" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet">
+
   <title>Soundsgood</title>
   
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
@@ -24,7 +28,7 @@
         <li><a href="{% url "song-index" %}">All Songs</a></li>
         <li><a href="{% url "playlist-create" %}">Create Playlist</a></li>
         {% if perms.main_app.add_song %}
-        <a href="{% url 'add_view' %}">Add a Song</a>
+        <a href="{% url 'song-create' %}">Add a Song</a>
         {% endif %}
         <li><a href="{% url "about" %}">About</a></li>
         <li><a href="{% url 'logout' %}">Log out</a></li>

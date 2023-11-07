@@ -23,13 +23,20 @@ class Song(models.Model):
   image = models.ImageField(upload_to='images/')
   audio_file = models.FileField(upload_to='songs/')
   
+  class Meta:
+    permissions = (
+      ("can_add_song","Can add song"),
+      ("can_edit_song","Can edit song"),
+      ("can_delete_song","Can delete song"),
+    )
+        
   def __str__(self):
     return self.title
   
   def get_absolute_url(self):
       return reverse("song-detail", kwargs={"pk": self.id})
   
-  
+
 
   
 class Playlist(models.Model):

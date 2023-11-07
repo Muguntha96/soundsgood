@@ -16,5 +16,5 @@ urlpatterns = [
     path('songs/<int:pk>/update/',views.SongUpdate.as_view(),name='song-update'),
     path('songs/<int:song_id>/delete/',views.song_delete,name='song-delete'),
     path('playlists/<int:playlist_id>/assoc-song/<int:song_id>/',views.assoc_song,name='assoc-song'),
-    # path('playlists/<int:playlist_id>/play-song/<int:song_id>/',views.play_song,name='play_song'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]

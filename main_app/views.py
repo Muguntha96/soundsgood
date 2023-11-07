@@ -1,5 +1,6 @@
 import mimetypes
-from django.http import FileResponse
+from django.forms.models import BaseModelForm
+from django.http import FileResponse, HttpResponse
 from django.shortcuts import redirect, render
 from django.db.models import Q
 from django.views.generic.edit import CreateView,UpdateView
@@ -8,18 +9,28 @@ from .models import Playlist,Song
 from .forms import SongSearchForm, UploadSongandImageForm,UploadImagePlaylistForm
 from main_app.models import Playlist,Song
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin,PermissionRequiredMixin
+from django.contrib.auth.decorators import user_passes_test
+
 
 # Create your views here.
+def is_admin(user):
+  return user.is_staff
 class Home(LoginView):
   template_name = 'home.html'
 
 def about(request):
   return render(request,'about.html')
 
+@login_required
 def playlist_index(request):
-  playlists=Playlist.objects.all()
+  playlists=Playlist.objects.filter(user=request.user)
   return render(request,'playlists/index.html',{'playlists':playlists})
 
+@login_required
 def playlist_detail(request,playlist_id):
   playlist = Playlist.objects.get(id=playlist_id)
   songs=None
@@ -43,46 +54,74 @@ def playlist_detail(request,playlist_id):
     }
   return render(request,'playlists/detail.html',context)
 
+@login_required
 def playlist_delete(request,playlist_id):
   Playlist.objects.get(id=playlist_id).delete()
   return redirect('playlist-index')
-class PlaylistCreate(CreateView):
+class PlaylistCreate(LoginRequiredMixin,CreateView):
   model = Playlist
   fields = ['title','description','genre','playlist_image']
-  playlist_form=UploadImagePlaylistForm
+
+  # playlist_form=UploadImagePlaylistForm
   success_url = '/playlists/' 
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
   
-class PlaylistUpdate(UpdateView):
+  
+class PlaylistUpdate(LoginRequiredMixin,UpdateView):
   model=Playlist
   fields=['title','genre','description']
   
-class SongCreate(CreateView):
+  
+class SongCreate(LoginRequiredMixin,PermissionRequiredMixin,CreateView):
   model = Song
   fields = '__all__'
   form=UploadSongandImageForm
   success_url = '/songs/'
+  def get_permission_required(self):
+    return ['main_app.add_song']
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
 
-class SongList(ListView):
+
+class SongList(LoginRequiredMixin,ListView):
   model = Song
   def play_song(self,song_id):
     song=Song.objects.get(id=song_id)
     audio=song.audio_file.path
     content_type, _ = mimetypes.guess_type(audio)
     return FileResponse(open(audio, 'rb'), content_type=content_type)
-class SongDetail(DetailView):
+
+class SongDetail(LoginRequiredMixin,DetailView):
   model = Song
 
-class SongUpdate(UpdateView):
+class SongUpdate(LoginRequiredMixin,PermissionRequiredMixin,UpdateView):
   model = Song
   fields =['title','genre']
 
+@login_required
+@user_passes_test(is_admin)
 def song_delete(request,song_id):
   Song.objects.get(id=song_id).delete()
   return redirect('song-index')
 
+@login_required
 def assoc_song(request,playlist_id,song_id):
   Playlist.objects.get(id=playlist_id).songs.add(song_id)
   return redirect('playlist-detail',playlist_id=playlist_id)
 
-# def play_song(request,playlist_id,song_id):
-  
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      user = form.save()
+      login(request, user)
+      return redirect('song-index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)

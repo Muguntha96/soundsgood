@@ -11,8 +11,11 @@
   border: var(--borders);
   box-shadow: var(--card-box-shadow);
   text-align: center; 
-  padding: 10px;  
-}
+  padding: 10px;
+  max-height: 300px;
+  min-height: 500px;
+}  
+
 
 .card-content {
   padding: 10px;

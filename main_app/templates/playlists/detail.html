@@ -54,25 +54,27 @@
       {% endif %}
     </div>
   </section>
-  <h3>Let's Find something for your playlist</h3>
+  <h1>Let's Find something for your playlist</h1>
   <form action="" method="get" class="search-song">
     {{ form.as_p }}
-    <button type="submit" class="btn submit">Search</button>
+    <button type="submit" id="btnsubmit"class="btn submit">Search</button>
   </form>
   <ul>
-    {% for song in songs  %}
-      <div class="song-card">
-        <li>
-          <img src="{{song.image.url}}" style="width:10%;height:10%" alt="song-image" />
-          <p>{{song.title}}</p>
-          <form action="{% url "assoc-song" playlist.id song.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" id="add-playlist" class="btn submit">Add</button>
-          </form>
-        </li>
-      </div>
-      {% empty %}
-    {% endfor %}
+    <div class="searched-songs">
+      {% for song in songs  %}
+      <li class="song-list-card">
+            <div class="search-songs-card">
+            <img src="{{song.image.url}}" style="width:80%;height:80%" alt="song-image" />
+            <p>{{song.title}}</p>
+            <form action="{% url "assoc-song" playlist.id song.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" id="add-playlist" class="btn submit">Add</button>
+            </form>
+          </div>
+          </li>
+        {% empty %}
+      {% endfor %}
+  </div>
   </ul>
 </div>
 {% endblock %}

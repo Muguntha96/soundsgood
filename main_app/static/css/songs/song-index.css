@@ -7,14 +7,14 @@
 }
 
 .card {
-  width: 224px;
-  height: auto;
+  width: 275px;
   margin: 10px;
   border: 2px solid white; 
   box-shadow:var(--card-box-shadow); 
   text-align: center; 
-  padding: 10px; 
-  
+  padding: 10px;
+  max-height: 300px;
+  min-height: 500px;
 }
 .song-img img {
   width: 100%;
@@ -45,3 +45,4 @@
   width: 100px; 
   height: 30px;
 }
+

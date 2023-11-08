@@ -10,7 +10,7 @@
 .playlist-details{
   margin-top: 5%;
 }
-#edit-btn,#edit-btn{
+#edit-btn,#edit-btn,#add-playlist{
   font-size: small;
   width: 100px;
   padding: auto;
@@ -61,7 +61,46 @@ text-align: center;
     color: var(--text-color);
   }
   .audio-player {
-    margin-top: 10px;
     width: 100px; 
     height: 30px;
   }
+
+  .search-song{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+
+  form input[type="text"]{
+    width: auto;
+    height: 100%;
+    font-family: 'Mooli', sans-serif;
+  }
+  #btnsubmit{
+    width: auto;
+    height: 100%;
+    margin-left: 10px;
+    margin-top:10px ;
+    padding:60x;
+    padding-bottom: 5px;
+    font-size: 16px;
+    background-color: green;
+  }
+.searched-songs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search-songs-card{
+  width: 224px;
+  min-height: 300px;
+  margin: 10px;
+  border: 2px solid white; 
+  box-shadow:var(--card-box-shadow); 
+  text-align: center; 
+  padding: 10px; 
+  max-height: 600px;
+}

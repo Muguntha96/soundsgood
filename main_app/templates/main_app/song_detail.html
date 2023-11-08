@@ -12,5 +12,11 @@
   <h2>Genre:{{song.genre}}</h2>
   <h2>Image:<img src="{{song.image.url}}" style="width:10%;height:10%" alt="song-image" /></h2>
   <h2>Song:{{song.audio_file}}</h2>
+  {% if perms.main_app.edit_song %}
+    <a href="{% url 'song-update' song.id %}" class="btn warn">Edit</a>
+  {% endif %}
+  {% if perms.main_app.delete_song %}
+    <a href="{% url 'song-delete' song.id %}" class="btn danger">Delete</a>
+  {% endif %}
 </div>
 {% endblock %}

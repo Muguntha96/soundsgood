@@ -22,12 +22,7 @@
       </div>
       <div class="card-content">
         <h2>{{song.title}}</h2>
-      {% if perms.main_app.edit_song %}
-        <a href="{% url 'song-update' song.id %}" class="btn warn">Edit</a>
-      {% endif %}
-      {% if perms.main_app.delete_song %}
-        <a href="{% url 'song-delete' song.id %}" class="btn danger">Delete</a>
-      {% endif %}
+        <h2>{{song.composer}}'s song</h2>
       </div> 
     </a>
     <audio controls>

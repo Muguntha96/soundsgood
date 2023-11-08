@@ -14,7 +14,12 @@ main > section {
   justify-content: center;
   flex-direction: column;
 }
-
+.home-page{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+}
 .logo-container {
   max-width: 375px;
 }

@@ -6,22 +6,24 @@
 {% endblock %}
 
 {% block content %}
-<section class="logo-container">
-  <div class="playlist-container">
-    <img src="{% static "images/default-detail.png" %}" alt="Text reads: Soundsgood" class="homepage-img-container">
-  </div>
-</section>
-{% if not user.is_authenticated %}
-<div class="login-form-container">
-  <section class="login-form">
-    <form action="{% url "home" %}" method='post' class='login'>
-      <h1>Login</h1>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class='btn submit'>Login</button>
-    </form>
+<div class="home-page">
+  <section class="logo-container">
+    <div class="playlist-container">
+      <img src="{% static "images/sounds.png" %}" alt="Text reads: Soundsgood" class="homepage-img-container">
+      </div>
   </section>
+  {% if not user.is_authenticated %}
+  <div class="login-form-container">
+    <section class="login-form">
+      <form action="{% url "home" %}" method='post' class='login'>
+        <h1>Login</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit" class='btn submit'>Login</button>
+      </form>
+    </section>
+  </div>
 </div>
 {% endif %}
 {% endblock %}

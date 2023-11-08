@@ -31,8 +31,7 @@ body {
   --text-color: wheat;
   --link-hover-color: wheat;
   --button-bg:#FE036A;
-  --button-bg-hover: #F99DBC;
-  --secondary: rgb(57, 57, 57);
+  --button-bg-hover:#F99DBC;
   --card-box-shadow: 5px 5px 6px -1px #AAA;
   --font-xtreme: 4.2rem;
   --font-xxl: 3.6rem;

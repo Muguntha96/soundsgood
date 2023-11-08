@@ -10,6 +10,8 @@
   margin: 10px;
   border: var(--borders);
   box-shadow: var(--card-box-shadow);
+  text-align: center; 
+  padding: 10px;  
 }
 
 .card-content {

@@ -14,6 +14,7 @@
   box-shadow:var(--card-box-shadow); 
   text-align: center; 
   padding: 10px; 
+  
 }
 .song-img img {
   width: 100%;
@@ -28,12 +29,14 @@
 .card-content h2 {
   font-size: 1.5rem; 
   margin: 0;
+  color: var(--text-color);
 }
 
 
 .card-content p {
   font-size: 1rem; 
   margin: 0;
+  color: var(--text-color);
 }
 
 

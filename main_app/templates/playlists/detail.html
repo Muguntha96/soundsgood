@@ -8,50 +8,56 @@
 {% block content %}
 <section class="playlist-container">
   <div class="playlist-img">
-    <img src="{{playlist.playlist_image.url}}" alt="default-detail-page" class="default-playlist-img" style="width:30%;height:50%">
+    <img src="{{playlist.playlist_image.url}}" alt="default-detail-page" class="default-playlist-img" >
   </div>
   <div class="playlist-details">
     <h1>{{playlist.title}}</h1>
     <h2>Genre:{{playlist.genre}}</h2>
-    <h2>Description:{{playlist.description}}</h2>
+    <h2>{{playlist.description}}</h2>
     <div class="cat-actions">
-      <a href="{% url 'playlist-update' playlist.id %}" class='btn warn'>Edit</a>
-      <a href="{% url 'playlist-delete' playlist.id %}" class='btn danger'>Delete</a>
+      <a href="{% url 'playlist-update' playlist.id %}" id="edit-btn" class='btn warn'>Edit</a>
+      <a href="{% url 'playlist-delete' playlist.id %}" id="edit-btn" class='btn danger'>Delete</a>
     </div>
     </dv>
   </div>
 </section>
-<section class="songs">
-  <div class="subsection-title">
-    <h2>{{playlist.title}} Songs List</h2>
-  </div>
-  <div class="subsection-content">
-    {% if playlist.songs.count %}
-        {{songs.count }}
-      {% for song in playlist.songs.all %}
-        <div class="song-container">
-          <div class="song-card-container">
-            <img src="{{song.image.url}}" style="width:10%;height:10%" alt="song-image" />
-            
+<div class="songs-section">
+  <section class="songs-card-container">
+    <div class="subsection-title">
+      <h2>{{playlist.title}} Songs List</h2>
+    </div>
+    <div class="songs-list">
+      <div class=".song-img img {
+        width: 100%;
+        height: auto; 
+        }">
+      </div>
+      {% if playlist.songs.count %}
+        {% for song in playlist.songs.all %}
+          <div class="song-card">
+            <div class="song-card-img">
+              <img src="{{song.image.url}}" alt="song-image" class="playlist-song-card" />
+            </div>
+            <div class="song-card-content">
+              <h2>{{song.title}}</h2>
+            </div>
+            <a href="">
+              <audio controls class="audio-player">
+                <source src="{{ song.audio_file.url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </a>
           </div>
-          <p>{{song.title}}</p>
-          <a href="">
-            <audio controls>
-              <source src="{{ song.audio_file.url }}" type="audio/mpeg">
-              Your browser does not support the audio element.
-          </audio>
-            {% comment %} <button type="submit" class="play">Play</button> {% endcomment %}
-          </a>
-        </div>
-      {% endfor %}
-    {% else %}
-    <p class="no-songs">There are no songs added to this playlist.</p>
-    {% endif %}
-  </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-songs">There are no songs added to this playlist.</p>
+      {% endif %}
+    </div>
+  </section>
   <h3>Let's Find something for your playlist</h3>
   <form action="" method="get" class="search-song">
     {{ form.as_p }}
-    <button type="submit">Search</button>
+    <button type="submit" class="btn submit">Search</button>
   </form>
   <ul>
     {% for song in songs  %}
@@ -61,12 +67,12 @@
           <p>{{song.title}}</p>
           <form action="{% url "assoc-song" playlist.id song.id %}" method="post">
             {% csrf_token %}
-            <button type="submit" class="btn submit">Add</button>
+            <button type="submit" id="add-playlist" class="btn submit">Add</button>
           </form>
         </li>
       </div>
       {% empty %}
     {% endfor %}
   </ul>
-</section>
+</div>
 {% endblock %}

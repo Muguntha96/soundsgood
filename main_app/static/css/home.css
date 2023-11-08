@@ -14,9 +14,11 @@ main > section {
   justify-content: center;
   flex-direction: column;
 }
-
-.header-logo-container {
-  display: none;
+.login-form-container{
+  display: flex;
+  margin-left: auto;
+  /* border: 2px solid white ; */
+  /* box-shadow:var(card-box-shadow); */
 }
 
 .logo-container {

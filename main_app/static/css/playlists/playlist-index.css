@@ -1,27 +1,19 @@
-/* .card-container {
+.card-container {
   padding: 0 30px;
   display: flex;
-  flex-direction: column; 
+  /* flex-direction: column;  */
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-} */
-
-.card-container {
-  display: flex;
-  flex-direction: column; /* Change to column for vertical alignment */
-  flex-wrap: wrap; /* Allow cards to wrap to the next column */
-  justify-content: center;
-  gap: 40px; /* Add some gap between columns */
 }
 
 .card {
   width: 275px;
-  margin: 0 10px 20px 10px; /* Adjust margin to create space between columns and rows */
+  margin: 10px;
   border: var(--borders);
   box-shadow: var(--card-box-shadow);
-  flex: 1; /* Allow cards to take up available space equally in the column */
 }
+
 .card-content {
   padding: 10px;
   width: 100%;

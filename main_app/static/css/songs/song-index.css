@@ -1,4 +1,4 @@
-.card-container {
+/* /* .card-container {
   padding: 0 40px;
   display: flex;
   justify-content: center;
@@ -7,14 +7,15 @@
 
 .card {
   width: 224px;
-  height: 224px;
+  height: auto; 
   margin: 10px;
   border: solid 2px;
   box-shadow: var(--card-box-shadow);
-  position: relative;
+  position: relative; 
 }
+  */
 
-.card-bg{
+/* .card-bg {
   opacity: .4;
   position: absolute;
   display: inline-flex;
@@ -35,17 +36,12 @@
 }
 
 .card > a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   display: inline-block;
   text-decoration: none;
   color: var(--text-color);
-}
+} */
 
-.card h2 {
+/* .card h2 {
   margin: 7px 0;
   font-size: var(--font-xl);
 }
@@ -61,4 +57,56 @@
 
 .page-header > img:first-of-type {
   margin-left: 15px;
+}
+
+.audio-player {
+  margin-top: 10px;  
+}  */
+
+/* Apply styles to the card container */
+.caard-coontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Style for individual cards */
+.card {
+  width: 224px;
+  height: auto;
+  margin: 10px;
+  border: 2px solid #000; /* Adjust the border color as needed */
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2); /* Customize box shadow */
+  text-align: center; /* Center card content */
+  /* background-color: black;  */
+  padding: 10px; 
+
+/* Style for the song image within the card */
+.song-img img {
+  width: 100%;
+  height: auto; /* Maintain image aspect ratio */
+}
+
+/* Style for the card content within the card */
+.card-content {
+  margin-top: 10px; /* Add space between the image and card content */
+}
+
+/* Style for the card title */
+.card-content h2 {
+  font-size: 1.5rem; /* Adjust font size as needed */
+  margin: 0;
+}
+
+/* Style for the composer text */
+.card-content p {
+  font-size: 1rem; /* Adjust font size as needed */
+  margin: 0;
+}
+
+/* Style for the audio player */
+.audio-player {
+  margin-top: 10px;
+  width: 100px; 
+  height: 30px;
 }

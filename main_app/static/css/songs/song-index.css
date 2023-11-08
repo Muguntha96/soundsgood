@@ -1,110 +1,42 @@
-/* /* .card-container {
-  padding: 0 40px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 
-.card {
-  width: 224px;
-  height: auto; 
-  margin: 10px;
-  border: solid 2px;
-  box-shadow: var(--card-box-shadow);
-  position: relative; 
-}
-  */
 
-/* .card-bg {
-  opacity: .4;
-  position: absolute;
-  display: inline-flex;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card-content {
-  padding: 15px;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  flex-direction: column;
-}
-
-.card > a {
-  display: inline-block;
-  text-decoration: none;
-  color: var(--text-color);
-} */
-
-/* .card h2 {
-  margin: 7px 0;
-  font-size: var(--font-xl);
-}
-
-.card p {
-  margin: 0;
-  font-size: var(--font-reg);
-}
-
-.page-header > img {
-  margin-left: 10px;
-}
-
-.page-header > img:first-of-type {
-  margin-left: 15px;
-}
-
-.audio-player {
-  margin-top: 10px;  
-}  */
-
-/* Apply styles to the card container */
-.caard-coontainer {
+.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-/* Style for individual cards */
 .card {
   width: 224px;
   height: auto;
   margin: 10px;
-  border: 2px solid #000; /* Adjust the border color as needed */
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2); /* Customize box shadow */
-  text-align: center; /* Center card content */
-  /* background-color: black;  */
+  border: 2px solid white; 
+  box-shadow:var(--card-box-shadow); 
+  text-align: center; 
   padding: 10px; 
-
-/* Style for the song image within the card */
+}
 .song-img img {
   width: 100%;
-  height: auto; /* Maintain image aspect ratio */
+  height: auto; 
 }
 
-/* Style for the card content within the card */
 .card-content {
-  margin-top: 10px; /* Add space between the image and card content */
+  margin-top: 10px;  
 }
 
-/* Style for the card title */
+
 .card-content h2 {
-  font-size: 1.5rem; /* Adjust font size as needed */
+  font-size: 1.5rem; 
   margin: 0;
 }
 
-/* Style for the composer text */
+
 .card-content p {
-  font-size: 1rem; /* Adjust font size as needed */
+  font-size: 1rem; 
   margin: 0;
 }
 
-/* Style for the audio player */
+
 .audio-player {
   margin-top: 10px;
   width: 100px; 

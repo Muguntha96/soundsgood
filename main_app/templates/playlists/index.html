@@ -9,13 +9,13 @@
 <section class="page-header">
   <h1>My Playlists</h1>
 </section>
-<section card-container>
+<section class=card-container>
   {% for playlist in playlists  %}
     <div class="card">
       <a href="{% url "playlist-detail" playlist.id %}">
         <div class="card-content">
           <div class="card-img-container">
-            <img src="{{playlist.playlist_image.url}}" alt="default-card-img" class="playlist-card-img" />
+            <img src="{{playlist.playlist_image.url}}" alt="default-card-img" class="playlist-card-img" style="width:100%;height:100%" />
           </div>
           <h2 class="card-title">{{playlist.title}}</h2>
           <p><small>{{ playlist.description }}</small></p>

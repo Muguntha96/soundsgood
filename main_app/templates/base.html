@@ -7,7 +7,8 @@
   <link rel="shortcut icon" href="{% static 'images/soundsgood-favicon.svg' %}" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Mooli&family=Sofia&display=swap" rel="stylesheet">
+
 
   <title>Soundsgood</title>
   
@@ -18,28 +19,28 @@
   <header>
     <div class="header-logo-container">
       <a href="/">
-        <img class='img-logo-container' src={% static 'images/soundsgood-logo.svg' %} alt="The soundsgood logo">
-      </a>
+        <img class='img-logo-container' src={% static 'images/soundsgoodlogo.png' %} alt="The soundsgood logo"> 
+      </a>  
     </div>
-    <nav>
-      <ul>
-      {% if user.is_authenticated %}
-        <li><a href="{% url "playlist-index" %}">Playlists</a></li>
-        <li><a href="{% url "song-index" %}">All Songs</a></li>
-        <li><a href="{% url "playlist-create" %}">Create Playlist</a></li>
-        {% if perms.main_app.add_song %}
-        <a href="{% url 'song-create' %}">Add a Song</a>
+      <nav>
+        <ul>
+        {% if user.is_authenticated %}
+          <li><a href="{% url "playlist-index" %}">Playlists</a></li>
+          <li><a href="{% url "song-index" %}">All Songs</a></li>
+          <li><a href="{% url "playlist-create" %}">Create Playlist</a></li>
+          {% if perms.main_app.add_song %}
+          <a href="{% url 'song-create' %}">Add a Song</a>
+          {% endif %}
+          <li><a href="{% url "about" %}">About</a></li>
+          <li><a href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
         {% endif %}
-        <li><a href="{% url "about" %}">About</a></li>
-        <li><a href="{% url 'logout' %}">Log out</a></li>
-      {% else %}
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'home' %}">Login</a></li>
-        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-      {% endif %}
-      </ul>
-    </nav>
-  </header>
+        </ul>
+      </nav>
+    </header>
   <main>
     {% block content %}{% endblock %}
   </main>

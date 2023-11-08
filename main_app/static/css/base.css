@@ -44,12 +44,12 @@ body {
   --card-border-radius: 6px;
 }
 .img-logo-container{
-  width: 70px;
-  height: 70px;
+  width: 18%;
+  height:15%;
 }
 header {
   width: 100%;
-  background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
+  background: var(--nav-bg-ff);
   border-bottom: var(--borders);
 }
 
@@ -180,6 +180,60 @@ nav li {
 
   .header-logo-container {
     padding-top: 3px;
+  }
+  
+  nav {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  nav ul {
+    flex-wrap: nowrap;
+  }
+
+  .page-header h1 {
+    font-size: var(--font-xtreme);
+  }
+  
+  .page-header img {
+    height: 50px;
+    margin-left:20px;
+  }
+  
+  .page-header img:first-of-type {
+    margin-left: 25px;
+  }
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    header {
+      background: var(--nav-bg);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  main {
+    min-height: calc(100vh - 55px);
+  }
+  nav {
+    margin-left: auto;
+  }
+
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    header {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+
+    nav,
+    .header-logo-container {
+      background:black;
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+    }
   }
 
 }

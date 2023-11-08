@@ -6,21 +6,23 @@
 {% endblock %}
 
 {% block content %}
-<section>
-  <h1>List of Playlist</h1>
+<section class="page-header">
+  <h1>My Playlists</h1>
 </section>
-<section>
+<section card-container>
   {% for playlist in playlists  %}
-  <div class="card">
-    <a href="{% url "playlist-detail" playlist.id %}">
-      <div class="card-content">
-        <div class="card-img-container">
-          <img src="{{playlist.playlist_image.url}}" alt="default-card-img" class="default-card-img">
+    <div class="card">
+      <a href="{% url "playlist-detail" playlist.id %}">
+        <div class="card-content">
+          <div class="card-img-container">
+            <img src="{{playlist.playlist_image.url}}" alt="default-card-img" class="playlist-card-img" />
+          </div>
+          <h2 class="card-title">{{playlist.title}}</h2>
+          <p><small>{{ playlist.description }}</small></p>
         </div>
-        <h2 class="card-title">{{playlist.title}}</h2>
-      </div>
-  </a>
-  </div>
+      </a>
+    </div>
   {% endfor %}
 </section>
+
 {% endblock %}

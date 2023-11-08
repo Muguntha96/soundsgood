@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "css/song_form.css" %}">
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
 <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Upload Song</button>
+  <button type="submit" class='btn submit'>Upload Song</button>
 </form>
 
 {% endblock %}

@@ -41,7 +41,7 @@ class Song(models.Model):
   
 class Playlist(models.Model):
   title=models.CharField(max_length=100)
-  description=models.CharField(max_length=300)
+  description=models.TextField(max_length=300)
   genre=models.CharField(
     max_length=100,
     choices=GENRE,

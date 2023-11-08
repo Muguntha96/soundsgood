@@ -13,9 +13,9 @@ html {
 
 /* resets font size to be 62.5% of the user preference - 
      in most browser configurations this will be 10px */
-:root {
-  font-size: 62.5%
-}
+/* :root {
+  /* font-size: 62.5% */
+/* } */ 
 
 body {
   margin: 0;
@@ -29,7 +29,7 @@ body {
   --borders:black;
   --text-color:white;
   --link-hover-color:wheat ;
-  --button-bg:green ;
+  --button-bg:black ;
   --button-bg-hover:#FF007F;
   --submit:white;
   --warn: rgb(255, 102, 0);
@@ -129,17 +129,6 @@ nav li {
   color: var(--secondary);
   border-color: var(--secondary);
 }
-
-.warn {
-  color: var(--warn);
-  border-color: var(--warn);
-}
-
-.danger {
-  color: var(--danger);
-  border-color: var(--danger);
-}
-
 .page-header h1 {
   font-size: var(--font-xxl);
   margin: 0;

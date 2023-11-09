@@ -16,11 +16,11 @@
   <div class="login-form-container">
     <section class="login-form">
       <form action="{% url "home" %}" method='post' class='login'>
-        <h1>Login</h1>
+        <h1>Log In to Soundsgood</h1>
         {% csrf_token %}
         {{ form.as_p }}
         <input type="hidden" name="next" value="{{ next }}">
-        <button type="submit" id="login-btn" class='btn submit'>Login</button>
+        <button type="submit" id="login-btn" class='btn submit'>Log In </button>
       </form>
     </section>
   </div>

@@ -14,6 +14,9 @@ main > section {
   justify-content: center;
   flex-direction: column;
 }
+form input[type="text"]{
+  font-family: 'Mooli', sans-serif;
+}
 .home-page{
 display: flex;
 flex-direction: column;
@@ -60,6 +63,7 @@ margin-top: -10%;
 #login-btn{
   align-items: center;
   background-color:	#0f9200;
+  margin-top: 5px;
 }
 
 .login-form-container{

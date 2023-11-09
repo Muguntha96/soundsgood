@@ -118,42 +118,16 @@ nav li {
   background-color: var(--button-bg-hover);
 }
 
-/* .submit {
-  color: var(--submit);
-  border-color: var(--submit);
-} */
-
 .secondary {
   color: var(--secondary);
   border-color: var(--secondary);
 }
 
-/* .warn {
-  color: var(--warn);
-  border-color: var(--warn);
-}
-
-.danger {
-  color: var(--danger);
-  border-color: var(--danger);
-} */
-
-.page-header h1 {
-  font-size: var(--font-xxl);
-  margin: 0;
-}
-
-.page-header img {
-  height: 40px;
-  margin-left:15px;
-}
-
-.page-header img:first-of-type {
-  margin-left: 20px;
-}
-
 .page-content {
   font-size: var(--font-reg);
+}
+.page-container{
+  font-size:40px;
 }
 
 @media only screen and (min-width: 768px){
@@ -190,18 +164,6 @@ nav li {
     flex-wrap: nowrap;
   }
 
-  .page-header h1 {
-    font-size: var(--font-xtreme);
-  }
-
-  .page-header img {
-    height: 50px;
-    margin-left:20px;
-  }
-
-  .page-header img:first-of-type {
-    margin-left: 25px;
-  }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     header {
@@ -232,4 +194,6 @@ nav li {
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
-  }
+}
+
+}

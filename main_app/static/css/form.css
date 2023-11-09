@@ -30,10 +30,15 @@ td > * {
 
 td > textarea {
   height: calc(4 * var(--font-l) + 8px);
-  font-family: inherit;
+  font-family: 'Mooli', sans-serif;
+  
 }
 
 .btn {
-  align-self: flex-end;
+  align-self:center;
   margin-right: 40px;
+  background-color: #0f9200;
+}
+.signup-form{
+  background-color: #404040;
 }

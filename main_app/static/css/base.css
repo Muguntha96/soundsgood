@@ -3,35 +3,33 @@ html {
 }
 
 /* The Universal Selector */
-*, /* All elements*/
-*::before, /* All ::before pseudo-elements */
-*::after { /* All ::after pseudo-elements */
+*,
+/* All elements*/
+*::before,
+/* All ::before pseudo-elements */
+*::after {
+  /* All ::after pseudo-elements */
   /* height & width will now include border & padding by default
      but can be over-ridden as needed */
   box-sizing: inherit;
 }
 
-/* resets font size to be 62.5% of the user preference - 
-     in most browser configurations this will be 10px */
-
-
-
 body {
   margin: 0;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
   font-family: 'Berkshire Swash', serif;
   color: wheat;
   min-height: 100vh;
-  background-color:	black ;
-  --nav-bg:black;
-  --nav-bg-ff:black;
-  --borders:wheat;
+  background-color: black;
+  --nav-bg: black;
+  --nav-bg-ff: black;
+  --borders: wheat;
   --text-color: wheat;
   --link-hover-color: wheat;
-  --button-bg:#FE036A;
-  --button-bg-hover:#F99DBC;
+  --button-bg: #FE036A;
+  --button-bg-hover: #F99DBC;
   --card-box-shadow: 5px 5px 6px -1px #AAA;
   --font-xtreme: 4.2rem;
   --font-xxl: 3.6rem;
@@ -43,7 +41,7 @@ body {
 
 header {
   width: 100%;
-  background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
+  background: var(--nav-bg-ff);
   border-bottom: var(--borders);
 }
 
@@ -71,12 +69,16 @@ nav a {
   color: var(--text-color);
   font-weight: 600;
   font-size: 16px;
+  padding: 10px;
 }
 
-nav a:hover {
+#username-style{
   background-color: white;
   color: black;
-
+}
+nav p:hover{
+  background-color: white;
+  color: black;
 }
 
 nav ul {
@@ -128,11 +130,12 @@ nav li {
 .page-content {
   font-size: var(--font-reg);
 }
-.page-container{
-  font-size:40px;
+
+.page-container {
+  font-size: 40px;
 }
 
-@media only screen and (min-width: 768px){
+@media only screen and (min-width: 768px) {
   header {
     position: sticky;
     display: flex;
@@ -176,10 +179,11 @@ nav li {
   }
 }
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 1024px) {
   main {
     min-height: calc(100vh - 55px);
   }
+
   nav {
     margin-left: auto;
   }
@@ -192,10 +196,10 @@ nav li {
 
     nav,
     .header-logo-container {
-      background:black;
+      background: black;
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
-}
+  }
 
 }

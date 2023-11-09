@@ -1,4 +1,4 @@
-![screenshot](public/assets/application-screenshot.png)
+![screenshot](main_app/static/images/screenshot.png)
 # Soundsgood
 ## Project Description:
 Soundsgood is a versatile digital tool that empowers music enthusiasts to curate and manage their own personalized collections of songs. Users can create, edit, and organize playlists to suit their moods, occasions, or preferences.

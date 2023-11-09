@@ -6,7 +6,7 @@ main {
   height: 100%;
 }
 
-main > section {
+main>section {
   width: 100%;
   padding: 10px 8px;
   display: flex;
@@ -14,15 +14,18 @@ main > section {
   justify-content: center;
   flex-direction: column;
 }
-form input[type="text"]{
+
+form input[type="text"] {
   font-family: 'Mooli', sans-serif;
 }
-.home-page{
-display: flex;
-flex-direction: column;
-margin-top: -10%;
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: -10%;
 
 }
+
 .logo-container {
   max-width: 375px;
 }
@@ -44,7 +47,7 @@ margin-top: -10%;
   margin: 10px 0;
 }
 
-.login > p {
+.login>p {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -60,22 +63,24 @@ margin-top: -10%;
   font-size: var(--font-l);
   padding: 2px 4px;
 }
-#login-btn{
+
+#login-btn {
   align-items: center;
-  background-color:	#0f9200;
+  background-color: #0f9200;
   margin-top: 5px;
 }
 
-.login-form-container{
-background-color:	#404040 ;
-margin-top: -20px;
+.login-form-container {
+  background-color: #404040;
+  margin-top: -20px;
 }
+
 @media only screen and (min-width: 768px) {
   main {
     justify-content: space-around;
   }
 
-  main > section {
+  main>section {
     width: 40%;
   }
 

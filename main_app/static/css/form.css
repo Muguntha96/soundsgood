@@ -22,23 +22,24 @@ td {
   max-width: 60%;
 }
 
-td > * {
+td>* {
   width: 100%;
   padding: 2px 4px;
   font-size: var(--font-l);
 }
 
-td > textarea {
+td>textarea {
   height: calc(4 * var(--font-l) + 8px);
   font-family: 'Mooli', sans-serif;
-  
+
 }
 
 .btn {
-  align-self:center;
+  align-self: center;
   margin-right: 40px;
   background-color: #0f9200;
 }
-.signup-form{
+
+.signup-form {
   background-color: #404040;
 }

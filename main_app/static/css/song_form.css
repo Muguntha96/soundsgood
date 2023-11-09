@@ -1,22 +1,21 @@
-#song-form{
+#song-form {
   display: flex;
   justify-content: center;
 }
+
 form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color:#181818;
+  background-color: #181818;
 }
-
 
 form label {
   font-weight: bold;
 }
 
-/* Style form input fields */
 form input[type="text"],
 form input[type="file"] {
   width: 100%;
@@ -26,7 +25,6 @@ form input[type="file"] {
   border-radius: 5px;
 }
 
-/* Style the genre dropdown */
 form select {
   width: 100%;
   padding: 10px;
@@ -34,7 +32,3 @@ form select {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
-/* Style the submit button */
-
-

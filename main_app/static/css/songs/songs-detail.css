@@ -1,18 +1,20 @@
-.card-content{
-  display:flex;
-  flex-direction:row;
+.card-content {
+  display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
-  /* margin-top:30px; */
   align-items: center;
-  justify-content:center;
-  padding:10px;
+  justify-content: center;
+  padding: 10px;
 }
-h1{
+
+h1 {
   font-size: 80px;
   display: flex;
   justify-content: center;
 }
-#edit-song,#delete-song{
+
+#edit-song,
+#delete-song {
   color: black;
-  background-color:var(--button-bg-hover);
+  background-color: var(--button-bg-hover);
 }

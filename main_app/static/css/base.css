@@ -72,11 +72,12 @@ nav a {
   padding: 10px;
 }
 
-#username-style{
+nav p:hover{
   background-color: white;
   color: black;
 }
-nav p:hover{
+
+nav a:hover{
   background-color: white;
   color: black;
 }

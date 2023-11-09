@@ -1,13 +1,17 @@
+#song-form{
+  display: flex;
+  justify-content: center;
+}
 form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color:black;
+  background-color:#181818;
 }
 
-/* Style form labels */
+
 form label {
   font-weight: bold;
 }

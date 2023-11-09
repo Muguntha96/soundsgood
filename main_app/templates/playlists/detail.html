@@ -8,12 +8,12 @@
 {% block content %}
 <section class="playlist-container">
   <div class="playlist-img">
-    <img src="{{playlist.playlist_image.url}}" alt="default-detail-page" class="default-playlist-img" >
+    <img src="{{playlist.playlist_image.url}}" alt="default-detail-page" class="detail-playlist-img" >
   </div>
   <div class="playlist-details">
     <h1>{{playlist.title}}</h1>
     <h2>Genre:{{playlist.genre}}</h2>
-    <h2>{{playlist.description}}</h2>
+    <span class="description"><h2>{{playlist.description}}</h2></span>
     <div class="cat-actions">
       <a href="{% url 'playlist-update' playlist.id %}" id="edit-btn" class='btn warn'>Edit</a>
       <a href="{% url 'playlist-delete' playlist.id %}" id="edit-btn" class='btn danger'>Delete</a>

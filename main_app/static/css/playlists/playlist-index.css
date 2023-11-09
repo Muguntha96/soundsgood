@@ -1,3 +1,6 @@
+#page-header{
+  justify-content: center;
+}
 .card-container {
   padding: 0 30px;
   display: flex;
@@ -7,14 +10,17 @@
 
 .card {
   width: 275px;
+  height: 400px;
   margin: 10px;
-  border: var(--borders);
+  background-color:#181818;
+  border: 2px solid #404040; 
   box-shadow: var(--card-box-shadow);
   text-align: center; 
   padding: 10px;
-  max-height: 300px;
-  min-height: 500px;
-}  
+}
+.card:hover{
+  background-color:#282828;
+}
 
 
 .card-content {

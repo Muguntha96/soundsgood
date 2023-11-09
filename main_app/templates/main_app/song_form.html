@@ -6,11 +6,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
+<div class="page-header" id="song-form">
   {% if object %}
-    <h1>Edit {{object.title}}</h1>
+    <h1 class="song-form">Edit {{object.title}}</h1>
   {% else %}
-    <h1>Add a Song</h1>
+    <h1 class="song-form">Add a Song</h1>
   {% endif %}
 </div>
 <form method="POST" enctype="multipart/form-data">
